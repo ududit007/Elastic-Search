@@ -1,0 +1,33 @@
+TO start elastic search
+--------------------------
+bin/elasticsearch
+localhost:9200
+
+To start kibana
+-------------------------
+sudo update-rc.d kibana defaults 95 10
+sudo -i service kibana start
+localhost:5601
+
+Load data using logstash
+-------------------------------
+bin/logstash -f <.config file>
+
+
+data.path setting to run multiple instances simultaneosly
+-----------------------------------
+bin/logstash -f logstash_apache.config --path.data .apache_log
+bin/logstash -f	<.config file> --path.data  PATH
+
+
+API call
+--------------
+ curl -XGET 127.0.0.1:9200/_cat/indices?v
+
+ To get data of a paricular date
+ -----------------
+ curl -XGET '127.0.0.1:9200/logstash-2019.07.31/_search?pretty'
+
+
+
+
